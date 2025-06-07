@@ -4,7 +4,7 @@ from contextlib import contextmanager
 import sys
 import time
 import threading
-from typing import Generator
+from typing import Generator, Literal
 
 
 class Item:
@@ -71,6 +71,73 @@ class Cursor:
     def show() -> None:
         """Show the terminal cursor."""
         print("\033[?25h", end="", flush=True)
+
+class Text:
+    """Utility class for printing text with styles"""
+    color_codes = {
+        "default": {
+            "start": "\033[0m",
+            "stop": "\033[0m"
+        },
+        "black": {
+            "start": "\033[30m",
+            "stop": "\033[0m"
+        },
+        "red": {
+            "start": "\033[31m",
+            "stop": "\033[0m"
+        },
+        "green": {
+            "start": "\033[32m",
+            "stop": "\033[0m"
+        },
+        "yellow": {
+            "start": "\033[33m",
+            "stop": "\033[0m"
+        },
+        "blue": {
+            "start": "\033[34m",
+            "stop": "\033[0m"
+        },
+        "magenta": {
+            "start": "\033[35m",
+            "stop": "\033[0m"
+        },
+        "cyan": {
+            "start": "\033[36m",
+            "stop": "\033[0m"
+        },
+        "white": {
+            "start": "\033[37m",
+            "stop": "\033[0m"
+        },
+        "bold": {
+            "start": "\033[1m",
+            "stop": "\033[22m"
+        },
+        "underline": {
+            "start": "\033[4m",
+            "stop": "\033[24m"
+        },
+        "inverse": {
+            "start": "\033[7m",
+            "stop": "\033[27m"
+        }
+    }
+
+    @staticmethod
+    def print_fancy(text: str, color: Literal["default", "black", "red", "green", "yellow", "blue", "magenta", "cyan", "white", "bold", "underline", "inverse"]) -> None:
+        """Print text with a specified color.
+
+        Args:
+            color: The color to use (e.g., 'red', 'green', 'blue')
+        """
+        if color in Text.color_codes:
+            print(f"{Text.color_codes[color]['start']}{text}{Text.color_codes[color]['stop']}")
+        else:
+            print(text)
+
+
 
 
 def clear() -> None:
