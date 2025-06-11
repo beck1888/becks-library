@@ -126,7 +126,7 @@ class Text:
     }
 
     @staticmethod
-    def print_fancy(text: str, color: Literal["default", "black", "red", "green", "yellow", "blue", "magenta", "cyan", "white", "bold", "underline", "inverse"]) -> None:
+    def print_color(text: str, color: Literal["default", "black", "red", "green", "yellow", "blue", "magenta", "cyan", "white", "bold", "underline", "inverse"]) -> None:
         """Print text with a specified color.
 
         Args:
