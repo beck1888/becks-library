@@ -56,6 +56,6 @@ class OpenArtificialIntelligence:
             )
             self.messages['messages'] = messages
         else:
-            self.messages = { 'messages': [messages[0]] }
+            self.messages = {'messages': [messages[0]]}
 
         return response

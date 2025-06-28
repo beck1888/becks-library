@@ -23,9 +23,9 @@ def say(text, openai_api_key: str, voice="onyx", wait_for_speech_to_stop=True, c
 
     # Structure the request
     response = client.audio.speech.create(
-    model="tts-1",
-    voice=voice,
-    input=text
+        model="tts-1",
+        voice=voice,
+        input=text,
     )
 
     # Create the cache directory if it doesn't exist

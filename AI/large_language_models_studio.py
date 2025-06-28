@@ -36,7 +36,7 @@ class LMStudio:
             }
         )
 
-        response = model.respond({ 'messages': messages }).content
+        response = model.respond({'messages': messages}).content
 
         if save_chat_history:
             messages.append(
@@ -47,6 +47,6 @@ class LMStudio:
             )
             self.messages['messages'] = messages
         else:
-            self.messages = { 'messages': [messages[0]] }
+            self.messages = {'messages': [messages[0]]}
 
         return response

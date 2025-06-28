@@ -1,0 +1,127 @@
+TTS Instruction Parameters
+
+Use the following fields to customize the voice output of the model. Each field accepts natural language descriptions.
+
+⸻
+
+voice
+
+Type: string
+Description:
+Describes the vocal quality and personality of the speaker. Include tone descriptors (e.g., deep, mellow), pacing cues (e.g., slow, deliberate), and analogies/metaphors if applicable.
+
+Format:
+
+[Adjective], [adjective], and [adjective], with a [modifier] cadence that [effect].
+
+Example:
+
+Deep, hushed, and enigmatic, with a slow, deliberate cadence that draws the listener in.
+
+
+⸻
+
+tone
+
+Type: string
+Description:
+Defines the speaker’s emotional attitude or mood. Useful for aligning delivery with the message context.
+
+Format:
+
+[Adjective] and [adjective], conveying a sense of [emotion or mood].
+
+Example:
+
+Dark, ominous, and foreboding, evoking a sense of mystery and the unknown.
+
+
+⸻
+
+phrasing
+
+Type: string
+Description:
+Specifies sentence structure and rhythm. Describe sentence length, cadence, and rhetorical style.
+
+Example:
+
+Sentences are short and rhythmic, building tension with pauses and carefully placed suspense.
+
+
+⸻
+
+punctuation
+
+Type: string
+Description:
+Describes how punctuation is used to affect delivery. Include elements like pauses, stops, or emphasis indicators.
+
+Example:
+
+Dramatic pauses, ellipses, and abrupt stops enhance the feeling of unease and anticipation.
+
+
+⸻
+
+speech_mannerisms
+
+Type: string
+Description:
+Details informal or character-driven quirks in speech. Can include slang, idiomatic expressions, or stylistic phrasing.
+
+Example:
+
+Uses casual, friendly phrasing with surfer slang like dude, gnarly, and boom to keep the conversation chill.
+
+
+⸻
+
+pronunciation
+
+Type: string
+Description:
+Describes how words are enunciated. Specify vowel length, clarity, stress, and rhythm.
+
+Example:
+
+Soft and drawn-out, with slightly stretched vowels and a naturally wavy rhythm in speech.
+
+
+⸻
+
+tempo / pacing
+
+Type: string
+Description:
+Controls the speed and flow of speech. Use to make delivery feel rushed, calm, or suspenseful.
+
+Example:
+
+Slow and easygoing, with a natural flow that never feels rushed, creating a calming effect.
+
+
+⸻
+
+emotion / voice_affect
+
+Type: string
+Description:
+Expresses the underlying emotional state behind the voice. Should match the intended listener reaction.
+
+Example:
+
+Genuine empathy and understanding; speak with warmth, especially during apologies.
+
+
+⸻
+
+pauses
+
+Type: string
+Description:
+Indicates when and why the voice should pause. Can be used to emphasize meaning, invite reflection, or build suspense.
+
+Example:
+
+Brief pauses after offering assistance or requesting details, highlighting willingness to listen and support.
