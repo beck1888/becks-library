@@ -1,21 +1,27 @@
-import subprocess # For command io
+import subprocess
+import shlex
+from typing import List
 
-boolean = bool
-
-def runCommand(command: list[str]) -> str:
+def run_command(command: List[str]) -> str:
     result = subprocess.run(command, capture_output=True, text=True)
     return result.stdout.strip()
 
-def showDialouge(message: str, allow_cancel: boolean = False) -> bool:
-    if not allow_cancel:
-        cmd = ["osascript", "-e", f'display dialog "{message}"' + 'buttons {"OK"} default button "OK"']
+def show_dialog(message: str, allow_cancel: bool = False) -> bool:
+    # Escape double quotes in the message
+    safe_message = message.replace('"', '\\"')
+
+    if allow_cancel:
+        script = f'display dialog "{safe_message}"'
     else:
-        cmd = ["osascript", "-e", f'display dialog "{message}"']
-    
-    if "'" in message or '"' in message:
-        raise RuntimeError("Your message may not have single or double quotes in them")
+        script = f'display dialog "{safe_message}" buttons {{"OK"}} default button "OK"'
 
-    
-    runCommand(cmd)
+    cmd = ["osascript", "-e", script]
+    output = run_command(cmd)
 
-showDialouge('hi!')
+    # Check if the user clicked "OK" or canceled
+    return "button returned:OK" in output
+
+# Example usage:
+if __name__ == "__main__":
+    result = show_dialog("Hello, world!")
+    print(f"User clicked OK? {result}")
